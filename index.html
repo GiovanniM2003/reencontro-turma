@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reencontro da Turma 🎒</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2b2d42;--red:#ef476f;--yellow:#ffd166;--green:#06d6a0;--blue:#118ab2;--purple:#9b5de5;--paper:#fffdf5;--line:#cfe3f5}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Patrick Hand',cursive;font-size:19px;color:var(--ink);background:#e8f4fd;
+background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 32px}
+h1,h2,h3,button,.pill{font-family:'Fredoka',sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:16px}
+header{text-align:center;padding:28px 12px 8px}
+h1{font-size:clamp(2rem,7vw,3.4rem);margin:0;color:var(--ink)}
+h1 span:nth-child(1){color:var(--red)}h1 span:nth-child(2){color:var(--blue)}h1 span:nth-child(3){color:var(--purple)}
+.sub{margin:6px 0 0;font-size:1.2rem}
+.card{background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:20px;margin:20px 0;box-shadow:6px 6px 0 var(--ink)}
+.card h2{margin:0 0 12px;font-size:1.6rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.info{border:3px solid var(--ink);border-radius:14px;padding:12px;text-align:center;transform:rotate(-1deg)}
+.info:nth-child(even){transform:rotate(1deg)}
+.info b{display:block;font-family:'Fredoka';font-size:1.5rem}
+.info .e{font-size:2rem}
+.c1{background:var(--yellow)}.c2{background:#b9f3e4}.c3{background:#ffc2d1}.c4{background:#cdb4f6}.c5{background:#a8dcf0}
+label{display:block;font-weight:700;margin:14px 0 4px;font-family:'Fredoka'}
+input[type=text],input[type=password],input[type=date],textarea{width:100%;font:inherit;padding:10px 12px;border:3px solid var(--ink);border-radius:12px;background:#fff}
+textarea{min-height:80px;resize:vertical}
+input:focus,textarea:focus{outline:4px solid var(--yellow)}
+.opts{display:grid;gap:10px;margin-top:6px}
+.opt{display:flex;gap:10px;align-items:center;border:3px solid var(--ink);border-radius:12px;padding:10px 12px;cursor:pointer;background:#fff;margin:0}
+.opt input{width:22px;height:22px;accent-color:var(--purple)}
+.opt:has(input:checked){background:var(--yellow)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+button{font-size:1.1rem;font-weight:600;padding:12px 20px;border:3px solid var(--ink);border-radius:14px;background:var(--green);color:var(--ink);cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .1s,box-shadow .1s}
+button:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+button:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+button.alt{background:var(--yellow)}
+.msg{margin-top:14px;padding:10px 14px;border-radius:12px;border:3px solid var(--ink);display:none}
+.msg.ok{display:block;background:#b9f3e4}.msg.err{display:block;background:#ffc2d1}
+.hint{font-size:.95rem;opacity:.8;margin:4px 0 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.stat{text-align:center;border:3px solid var(--ink);border-radius:14px;padding:10px}
+.stat b{font-family:'Fredoka';font-size:2.2rem;display:block}
+.bar{height:28px;border:3px solid var(--ink);border-radius:14px;overflow:hidden;display:flex;margin:16px 0;background:#fff}
+.bar i{display:block;height:100%;transition:width .6s}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:480px}
+th,td{text-align:left;padding:8px 10px;border-bottom:2px dashed var(--line);vertical-align:top}
+th{font-family:'Fredoka'}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;border:2px solid var(--ink);font-size:.95rem;white-space:nowrap}
+.yes{background:var(--green)}.no{background:var(--yellow)}
+.cost{background:var(--yellow);border:3px dashed var(--ink);border-radius:14px;padding:12px;margin-top:16px;text-align:center}
+footer{text-align:center;padding:20px;font-size:.95rem}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div style="font-size:2.6rem">🎒✏️📚</div>
+  <h1><span>Reencontro</span> <span>da</span> <span>Turma!</span></h1>
+  <p class="sub">Bateu a saudade da escola? Vem confirmar presença! 🔔</p>
+</header>
+
+<section class="card">
+  <h2>📋 Informações do evento</h2>
+  <div class="grid">
+    <div class="info c1"><span class="e">📅</span><b>12/12/2026</b>Data prevista</div>
+    <div class="info c2"><span class="e">🏠</span><b>R$ 1.000</b>Aluguel da casa</div>
+    <div class="info c3"><span class="e">🔥</span><b>R$ 150</b>Churrasqueiro</div>
+    <div class="info c4"><span class="e">🥩</span><b>R$ 30</b>Carne (por pessoa)</div>
+    <div class="info c5"><span class="e">🍻</span><b>Bebida</b>Cada um leva a sua!</div>
+  </div>
+  <div class="cost" id="cost">Calculando a divisão…</div>
+</section>
+
+<section class="card">
+  <h2>📝 Minha resposta</h2>
+  <form id="f" autocomplete="off">
+    <label for="name">Nome completo</label>
+    <input type="text" id="name" required maxlength="80" placeholder="Ex.: Maria da Silva Santos">
+    <label for="pin">Senha (4 a 6 números)</label>
+    <input type="password" id="pin" inputmode="numeric" pattern="\d{4,6}" maxlength="6" required placeholder="••••">
+    <p class="hint">Crie uma senha na primeira vez. Depois, use o mesmo nome e senha para ver ou mudar sua resposta.</p>
+
+    <label>Você topa a data?</label>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="agree" value="yes"> ✅ Estou de acordo com 12/12/2026</label>
+      <label class="opt"><input type="radio" name="agree" value="no"> 📆 Prefiro outra data</label>
+    </div>
+    <div id="altBox" class="hidden">
+      <label for="alt">Qual data ficaria legal pra você?</label>
+      <input type="date" id="alt">
+    </div>
+
+    <label for="note">Observação (opcional)</label>
+    <textarea id="note" maxlength="500" placeholder="Quer deixar um recado pra turma?"></textarea>
+
+    <div class="row">
+      <button type="submit">🚀 Enviar resposta</button>
+      <button type="button" class="alt" id="load">🔑 Já respondi, quero ver a minha</button>
+    </div>
+    <div class="msg" id="msg"></div>
+  </form>
+</section>
+
+<section class="card">
+  <h2>📊 Quadro de votação</h2>
+  <div class="stats">
+    <div class="stat c2"><b id="sYes">0</b>Topam 12/12</div>
+    <div class="stat c1"><b id="sNo">0</b>Outra data</div>
+    <div class="stat c5"><b id="sAll">0</b>Respostas</div>
+  </div>
+  <div class="bar"><i id="bYes" style="background:var(--green);width:0"></i><i id="bNo" style="background:var(--yellow);width:0"></i></div>
+  <h3>📆 Datas sugeridas</h3>
+  <div id="alts">—</div>
+  <h3>👥 Quem respondeu</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Nome</th><th>Resposta</th><th>Observação</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table></div>
+</section>
+<footer>Feito com 💛 pra matar a saudade da turma</footer>
+</div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmt = (iso) => iso ? iso.split("-").reverse().join("/") : "";
+
+async function api(path, body) {
+  const r = await fetch("/api/" + path, {
+    method: body ? "POST" : "GET",
+    headers: { "Content-Type": "application/json" },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d.error || "Algo deu errado. Tente de novo.");
+  return d;
+}
+function say(text, ok) { const m = $("#msg"); m.textContent = text; m.className = "msg " + (ok ? "ok" : "err"); }
+
+function toggleAlt() {
+  const no = document.querySelector('input[name=agree]:checked')?.value === "no";
+  $("#altBox").classList.toggle("hidden", !no);
+}
+document.querySelectorAll("input[name=agree]").forEach((r) => r.addEventListener("change", toggleAlt));
+$("#alt").min = new Date().toISOString().slice(0, 10);
+
+function render(rows) {
+  const yes = rows.filter((r) => r.agree === "yes").length;
+  const no = rows.length - yes;
+  $("#sYes").textContent = yes; $("#sNo").textContent = no; $("#sAll").textContent = rows.length;
+  $("#bYes").style.width = rows.length ? (yes / rows.length) * 100 + "%" : "0";
+  $("#bNo").style.width = rows.length ? (no / rows.length) * 100 + "%" : "0";
+
+  const tally = {};
+  rows.filter((r) => r.altDate).forEach((r) => (tally[r.altDate] = (tally[r.altDate] || 0) + 1));
+  const alts = Object.entries(tally).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  $("#alts").innerHTML = alts.length
+    ? alts.map(([d, n]) => `<span class="pill no" style="margin:3px">${fmt(d)} · ${n} ${n > 1 ? "votos" : "voto"}</span>`).join(" ")
+    : "Ninguém sugeriu outra data até agora.";
+
+  $("#rows").innerHTML = rows.length
+    ? rows.map((r) => `<tr><td>${esc(r.name)}</td><td>${r.agree === "yes"
+        ? '<span class="pill yes">✅ Topa 12/12</span>'
+        : `<span class="pill no">📆 Prefere ${fmt(r.altDate)}</span>`}</td><td>${esc(r.note)}</td></tr>`).join("")
+    : '<tr><td colspan="3">Ainda não há respostas. Seja o primeiro! 🎉</td></tr>';
+
+  const money = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  $("#cost").innerHTML = yes
+    ? `Com <b>${yes}</b> ${yes > 1 ? "confirmados" : "confirmado"}, fica em torno de <b>${money((1150 / yes) + 30)}</b> por pessoa<br><small>(casa + churrasqueiro divididos, mais a carne)</small>`
+    : "Quando as confirmações chegarem, a divisão por pessoa aparece aqui.";
+}
+
+async function refresh() {
+  try { render(await api("results")); } catch (e) { $("#rows").innerHTML = `<tr><td colspan="3">${esc(e.message)}</td></tr>`; }
+}
+
+$("#f").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const agree = document.querySelector("input[name=agree]:checked")?.value;
+  try {
+    await api("vote", { name: $("#name").value, pin: $("#pin").value, agree, altDate: $("#alt").value, note: $("#note").value });
+    say("Resposta salva! 🎉 Use seu nome e senha para voltar quando quiser.", true);
+    refresh();
+  } catch (err) { say(err.message, false); }
+});
+
+$("#load").addEventListener("click", async () => {
+  try {
+    const d = await api("login", { name: $("#name").value, pin: $("#pin").value });
+    $("#name").value = d.name; $("#note").value = d.note || "";
+    document.querySelector(`input[name=agree][value=${d.agree}]`).checked = true;
+    $("#alt").value = d.altDate || ""; toggleAlt();
+    say("Achei sua resposta! Pode editar e enviar de novo. 👍", true);
+  } catch (err) { say(err.message, false); }
+});
+
+refresh();
+setInterval(refresh, 30000);
+</script>
+</body>
+</html>
